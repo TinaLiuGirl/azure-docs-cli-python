@@ -1,79 +1,43 @@
 commandList:
-- name: az tag add-value
-  description: Creates a tag value.
-  href: tag#add-value
-- name: az tag create
-  description: Creates a tag in the subscription.
-  href: tag#create
-- name: az tag delete
-  description: Deletes a tag from the subscription.
-  href: tag#delete
-- name: az tag list
-  description: Gets the names and values of all resource tags that are defined in a subscription.
-  href: tag#list
-- name: az tag remove-value
-  description: Deletes a tag value.
-  href: tag#remove-value
-htmlId: tag
+- name: az sql server ad-admin create
+  description: Creates a new server Active Directory administrator.
+  href: ad-admin#create
+- name: az sql server ad-admin delete
+  description: Deletes an existing server Active Directory Administrator.
+  href: ad-admin#delete
+- name: az sql server ad-admin list
+  description: Returns a list of server Administrators.
+  href: ad-admin#list
+- name: az sql server ad-admin update
+  description: Updates an existing server Active Directory administrator.
+  href: ad-admin#update
+htmlId: ad-admin
 examples: []
 source:
   remote:
-    path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
+    path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
     branch: master
     repo: https://github.com/Azure/azure-cli.git
 children:
 - commandList: []
-  htmlId: add-value
-  examples: []
-  parameters:
-  - name: --name -n
-    isRequired: True
-    summary: The name of the tag.
-    description: ''
-  - name: --value
-    isRequired: True
-    summary: The value of the tag to create.
-    description: ''
-  - name: --debug
-    isRequired: False
-    summary: Increase logging verbosity to show all debug logs.
-    description: ''
-  - name: --help -h
-    isRequired: False
-    summary: Show this help message and exit.
-    description: ''
-  - name: --output -o
-    isRequired: False
-    summary: Output format.
-    description: ''
-    defaultValue: json
-    parameterValueGroup: json, jsonc, table, tsv
-  - name: --query
-    isRequired: False
-    summary: JMESPath query string. See <a href="http://jmespath.org/">http://jmespath.org/</a> for more information and examples.
-    description: ''
-  - name: --verbose
-    isRequired: False
-    summary: Increase logging verbosity. Use --debug for full debug logs.
-    description: ''
-  source:
-    remote:
-      path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
-      branch: master
-      repo: https://github.com/Azure/azure-cli.git
-  children: []
-  uid: az_tag_add-value
-  name: az tag add-value
-  description: The name of the tag must already exist.
-  summary: Creates a tag value.
-  Metadata: {}
-- commandList: []
   htmlId: create
   examples: []
   parameters:
-  - name: --name -n
+  - name: --display-name -u
     isRequired: True
-    summary: The name of the tag to create.
+    summary: Display name of the Azure AD administrator user or group.
+    description: ''
+  - name: --object-id -i
+    isRequired: True
+    summary: The unique ID of the Azure AD administrator.
+    description: ''
+  - name: --resource-group -g
+    isRequired: True
+    summary: Name of resource group. You can configure the default group using az configure --defaults group=<name>.
+    description: ''
+  - name: --server-name -s
+    isRequired: True
+    summary: The name of the SQL Server.
     description: ''
   - name: --debug
     isRequired: False
@@ -99,22 +63,26 @@ children:
     description: ''
   source:
     remote:
-      path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
+      path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
       branch: master
       repo: https://github.com/Azure/azure-cli.git
   children: []
-  uid: az_tag_create
-  name: az tag create
-  description: The tag name can have a maximum of 512 characters and is case insensitive. Tag names created by Azure have prefixes of microsoft, azure, or windows. You cannot create tags with one of these prefixes.
-  summary: Creates a tag in the subscription.
+  uid: az_sql_server_ad-admin_create
+  name: az sql server ad-admin create
+  description: ''
+  summary: Creates a new server Active Directory administrator.
   Metadata: {}
 - commandList: []
   htmlId: delete
   examples: []
   parameters:
-  - name: --name -n
+  - name: --resource-group -g
     isRequired: True
-    summary: The name of the tag.
+    summary: Name of resource group. You can configure the default group using az configure --defaults group=<name>.
+    description: ''
+  - name: --server-name -s
+    isRequired: True
+    summary: The name of the SQL Server.
     description: ''
   - name: --debug
     isRequired: False
@@ -140,19 +108,27 @@ children:
     description: ''
   source:
     remote:
-      path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
+      path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
       branch: master
       repo: https://github.com/Azure/azure-cli.git
   children: []
-  uid: az_tag_delete
-  name: az tag delete
-  description: You must remove all values from a resource tag before you can delete it.
-  summary: Deletes a tag from the subscription.
+  uid: az_sql_server_ad-admin_delete
+  name: az sql server ad-admin delete
+  description: ''
+  summary: Deletes an existing server Active Directory Administrator.
   Metadata: {}
 - commandList: []
   htmlId: list
   examples: []
   parameters:
+  - name: --resource-group -g
+    isRequired: True
+    summary: Name of resource group. You can configure the default group using az configure --defaults group=<name>.
+    description: ''
+  - name: --server-name -s
+    isRequired: True
+    summary: The name of the SQL Server.
+    description: ''
   - name: --debug
     isRequired: False
     summary: Increase logging verbosity to show all debug logs.
@@ -177,26 +153,46 @@ children:
     description: ''
   source:
     remote:
-      path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
+      path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
       branch: master
       repo: https://github.com/Azure/azure-cli.git
   children: []
-  uid: az_tag_list
-  name: az tag list
+  uid: az_sql_server_ad-admin_list
+  name: az sql server ad-admin list
   description: ''
-  summary: Gets the names and values of all resource tags that are defined in a subscription.
+  summary: Returns a list of server Administrators.
   Metadata: {}
 - commandList: []
-  htmlId: remove-value
+  htmlId: update
   examples: []
   parameters:
-  - name: --name -n
+  - name: --resource-group -g
     isRequired: True
-    summary: The name of the tag.
+    summary: Name of resource group. You can configure the default group using az configure --defaults group=<name>.
     description: ''
-  - name: --value
+  - name: --server-name -s
     isRequired: True
-    summary: The value of the tag to delete.
+    summary: The name of the SQL Server.
+    description: ''
+  - name: --display-name -u
+    isRequired: False
+    summary: Display name of the Azure AD administrator user or group.
+    description: ''
+  - name: --object-id -i
+    isRequired: False
+    summary: The unique ID of the Azure AD administrator.
+    description: ''
+  - name: --add
+    isRequired: False
+    summary: 'Add an object to a list of objects by specifying a path and key value pairs.  Example: --add property.listProperty <key=value, string or JSON string>.'
+    description: ''
+  - name: --remove
+    isRequired: False
+    summary: 'Remove a property or an element from a list.  Example: --remove property.list <indexToRemove> OR --remove propertyToRemove.'
+    description: ''
+  - name: --set
+    isRequired: False
+    summary: 'Update an object by specifying a property path and value to set.  Example: --set property1.property2=<value>.'
     description: ''
   - name: --debug
     isRequired: False
@@ -222,23 +218,23 @@ children:
     description: ''
   source:
     remote:
-      path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
+      path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
       branch: master
       repo: https://github.com/Azure/azure-cli.git
   children: []
-  uid: az_tag_remove-value
-  name: az tag remove-value
+  uid: az_sql_server_ad-admin_update
+  name: az sql server ad-admin update
   description: ''
-  summary: Deletes a tag value.
+  summary: Updates an existing server Active Directory administrator.
   Metadata: {}
-uid: az_tag
-name: 'Resource tags - az tag'
+uid: az_sql_server_ad-admin
+name: az sql server ad-admin
 description: ''
-summary: Manage resource tags.
+summary: Manage a server's Active Directory administrator.
 Metadata:
   doc_source_url_repo: https://github.com/Azure/azure-cli/blob/master/
-  doc_source_url_path: src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
-  original_content_git_url: https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
-  gitcommit: https://github.com/Azure/azure-cli/blob/4ba0a0b770b991517875c82df2f334734133285a/src/command_modules/azure-cli-resource/azure/cli/command_modules/resource/_help.py
-  updated_at: 6/26/2017 6:01:42 PM
-  ms.date: 6/26/2017
+  doc_source_url_path: src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
+  original_content_git_url: https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
+  gitcommit: https://github.com/Azure/azure-cli/blob/f6c8d19bd4f04aaad601cb58c0c07999bf123f52/src/command_modules/azure-cli-sql/azure/cli/command_modules/sql/_help.py
+  updated_at: 7/6/2017 3:46:49 PM
+  ms.date: 7/6/2017

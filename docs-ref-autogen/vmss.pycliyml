@@ -72,6 +72,9 @@ commandList:
 - name: az vmss list-instance-connection-info
   description: Get the IP address and port number used to connect to individual instances.
   href: vmss#list-instance-connection-info
+- name: az vmss list-instance-public-ips
+  description: List public IP addresses of VM instances.
+  href: vmss#list-instance-public-ips
 - name: az vmss list-instances
   description: Gets a list of all virtual machines in a VM scale sets.
   href: vmss#list-instances
@@ -135,6 +138,8 @@ children:
     code: az vmss create -n MyVmss -g MyResourceGroup --dns-name-for-public-ip MyGloballyUniqueDnsName --load-balancer MyLoadBalancer --vnet-name MyVnet --subnet MySubnet --image UbuntuLTS --generate-ssh-keys
   - title: Create a Linux VM scale set from a custom image using an existing ssh public key of ~/.ssh/id_rsa.pub.
     code: az vmss create -n MyVmss -g MyResourceGroup --image MyImage
+  - title: Create a Linux VM scale set, a load balancer, each VM has a public-ip address, a custom domain name, own dns servers
+    code: az vmss create -n MyVmss -g MyResourceGroup --image centos --public-ip-per-vm --vm-domain-name myvmss --dns-servers 10.0.0.6 10.0.0.5
   - title: Create a Linux VM scale set with a cloud-init script (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init).
     code: az vmss create -g MyResourceGroup -n MyVmss --image debian --custom_data MyCloudInitScript.yml
   - title: Create an Debian VM scaleset and with Key Vault secrets. The secrets are placed in /var/lib/waagent and each certificate file is named with the hex thumbprint.
@@ -231,6 +236,10 @@ children:
     isRequired: False
     summary: SSH public key or public key file path.
     description: ''
+  - name: --dns-servers
+    isRequired: False
+    summary: Space separated IP addresses of DNS servers, e.g. 10.0.0.5 10.0.0.6.
+    description: ''
   - name: --public-ip-address
     isRequired: False
     summary: Name of the public IP address when creating one (default) or referencing an existing one. Can also reference an existing public IP by ID or specify "" for None.
@@ -245,6 +254,10 @@ children:
     isRequired: False
     summary: Globally unique DNS name for a newly created Public IP.
     description: ''
+  - name: --public-ip-per-vm
+    isRequired: False
+    summary: Each VM instance will have a public ip.
+    description: ''
   - name: --subnet
     isRequired: False
     summary: The name of the subnet when creating a new VNet or referencing an existing one. Can also reference an existing subnet by ID. If omitted, an appropriate VNet and subnet will be selected automatically, or a new one will be created.
@@ -252,6 +265,10 @@ children:
   - name: --subnet-address-prefix
     isRequired: False
     summary: The subnet IP address prefix to use when creating a new VNet in CIDR format.
+    description: ''
+  - name: --vm-domain-name
+    isRequired: False
+    summary: Domain name of VM instances, once configured, the FQDN is 'vm<vm-index>.<vm-domain-name>.<..rest..>'.
     description: ''
   - name: --vnet-address-prefix
     isRequired: False
@@ -266,6 +283,16 @@ children:
     isRequired: False
     summary: Name to use when creating a new application gateway (default) or referencing an existing one. Can also reference an existing application gateway by ID or specify "" for none.
     description: ''
+  - name: --app-gateway-capacity
+    isRequired: False
+    summary: The number of instances to use when creating a new application gateway.
+    description: ''
+    defaultValue: 10
+  - name: --app-gateway-sku
+    isRequired: False
+    summary: SKU when creating a new application gateway.
+    description: ''
+    defaultValue: Standard_Large
   - name: --app-gateway-subnet-address-prefix
     isRequired: False
     summary: The subnet IP address prefix to use when creating a new application gateway in CIDR format.
@@ -299,6 +326,7 @@ children:
     isRequired: False
     summary: Storage caching type for the VM OS disk.
     description: ''
+    defaultValue: ReadWrite
     parameterValueGroup: ReadOnly, ReadWrite
   - name: --os-disk-name
     isRequired: False
@@ -313,6 +341,7 @@ children:
     isRequired: False
     summary: 'Only applicable when use with ''--use-unmanaged-disk''. Name of the storage container for the VM OS disk. Default: vhds.'
     description: ''
+    defaultValue: vhds
   - name: --storage-sku
     isRequired: False
     summary: The sku of storage account to persist VM. By default, only Standard_LRS and Premium_LRS are allowed. Using with --use-unmanaged-disk, all are available.
@@ -644,6 +673,51 @@ children:
   name: az vmss list-instance-connection-info
   description: ''
   summary: Get the IP address and port number used to connect to individual instances.
+  Metadata: {}
+- commandList: []
+  htmlId: list-instance-public-ips
+  examples: []
+  parameters:
+  - name: --name -n
+    isRequired: True
+    summary: Scale set name. You can configure the default using az configure --defaults vmss=<name>.
+    description: ''
+  - name: --resource-group -g
+    isRequired: True
+    summary: Name of resource group. You can configure the default group using az configure --defaults group=<name>.
+    description: ''
+  - name: --debug
+    isRequired: False
+    summary: Increase logging verbosity to show all debug logs.
+    description: ''
+  - name: --help -h
+    isRequired: False
+    summary: Show this help message and exit.
+    description: ''
+  - name: --output -o
+    isRequired: False
+    summary: Output format.
+    description: ''
+    defaultValue: json
+    parameterValueGroup: json, jsonc, table, tsv
+  - name: --query
+    isRequired: False
+    summary: JMESPath query string. See <a href="http://jmespath.org/">http://jmespath.org/</a> for more information and examples.
+    description: ''
+  - name: --verbose
+    isRequired: False
+    summary: Increase logging verbosity. Use --debug for full debug logs.
+    description: ''
+  source:
+    remote:
+      path: src/command_modules/azure-cli-vm/azure/cli/command_modules/vm/_help.py
+      branch: master
+      repo: https://github.com/Azure/azure-cli.git
+  children: []
+  uid: az_vmss_list-instance-public-ips
+  name: az vmss list-instance-public-ips
+  description: ''
+  summary: List public IP addresses of VM instances.
   Metadata: {}
 - commandList: []
   htmlId: list-instances
@@ -1258,6 +1332,6 @@ Metadata:
   doc_source_url_repo: https://github.com/Azure/azure-cli/blob/master/
   doc_source_url_path: src/command_modules/azure-cli-vm/azure/cli/command_modules/vm/_help.py
   original_content_git_url: https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-vm/azure/cli/command_modules/vm/_help.py
-  gitcommit: https://github.com/Azure/azure-cli/blob/ff20840c0278a29204adbb2c23c50d92feaa799f/src/command_modules/azure-cli-vm/azure/cli/command_modules/vm/_help.py
-  updated_at: 6/15/2017 7:50:31 PM
-  ms.date: 6/15/2017
+  gitcommit: https://github.com/Azure/azure-cli/blob/c240fe659da592de28f03e841300b85178aba0f9/src/command_modules/azure-cli-vm/azure/cli/command_modules/vm/_help.py
+  updated_at: 7/5/2017 9:00:40 PM
+  ms.date: 7/5/2017

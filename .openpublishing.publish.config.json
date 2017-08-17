@@ -5,11 +5,11 @@
   "need_generate_intellisense": false,
   "docsets_to_publish": [
     {
-      "docset_name": "azure-cli-docs",
+      "docset_name": "e2eprod-azure-cli-docs",
       "build_source_folder": ".",
-      "build_output_subfolder": "cli/azure",
+      "build_output_subfolder": "e2eprod-azure-cli-docs",
       "locale": "en-us",
-      "version": 0,
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",

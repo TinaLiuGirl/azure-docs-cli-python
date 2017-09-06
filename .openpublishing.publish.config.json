@@ -14,7 +14,7 @@
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
-        "RestApi": "Content"
+        "RestApi": "Content",
         "AzurePyCli": "Content",
         "UniversalReference": "Content"
       },

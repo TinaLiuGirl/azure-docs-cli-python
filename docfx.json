@@ -327,6 +327,7 @@
     },
     "template": [],
     "exportrawmodel": true,
-    "dest": ""
+    "dest": "",
+    "markdownEngineName": "markdig"
   }
 }

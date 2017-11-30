@@ -14,9 +14,7 @@ ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
 experiment_id: 83e72847-fad8-4c
 ---
-
 # Install Azure CLI 2.0
-
 Install the new version of the Azure CLI today!
 We've improved and updated it to provide a great native command-line experience for managing Azure resources.
 It can be used on macOS, Linux, and Windows.
@@ -37,4 +35,6 @@ instructions also apply if you are running a distribution on Windows Subsystem f
 
 > [!NOTE]
 > If you are using the Azure Service Management (ASM) model, [install Azure CLI 1.0](/azure/cli-install-nodejs).
+> 
+> 
 

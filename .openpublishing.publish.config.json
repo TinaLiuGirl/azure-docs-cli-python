@@ -27,7 +27,8 @@
       "build_entry_point": "docs",
       "template_folder": "_themes",
       "customized_template_paths": [
-         "_dependentPackages/uref/content"
+         "_dependentPackages/uref/content",
+         "_dependentPackages/MarkdigEngine/content"
       ],
       "customized_tasks": {
         "docset_prebuild": [
@@ -66,6 +67,12 @@
       "path_to_root": "_dependentPackages/CommonPlugins",
       "target_framework": "net45",
       "version": "latest"
+    },
+    {
+    "id": "Microsoft.DocAsCode.MarkdigEngine",
+    "nuget_feed": "https://www.myget.org/F/op/api/v2",
+    "path_to_root": "_dependentPackages/MarkdigEngine",
+    "version": "latest"
     }
   ],
   "JoinTOCPlugin": [

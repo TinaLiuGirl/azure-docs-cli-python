@@ -41,6 +41,7 @@ A detailed [reference](/cli/azure/) is also available that documents how to use 
 
 [Get started](get-started-with-azure-cli.md) with Azure CLI 2.0 now.
 
+<xref:az_account_lock>
 
 > [!NOTE]
 > If you use the previous version of the CLI (Azure CLI), you can continue to use it.

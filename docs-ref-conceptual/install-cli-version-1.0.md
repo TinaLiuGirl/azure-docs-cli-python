@@ -1,22 +1,14 @@
 ﻿---
-title: Install the Azure CLI 1.0 | Microsoft Docs
+title: Install the Azure CLI 1.0
 description: Install the Azure CLI 1.0 for Mac, Linux, and Windows to start using Azure services
-editor: ''
-manager: timlt
-documentationcenter: ''
-author: squillace
-services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: bdb776c8-7a76-4f3a-887c-236b4fffee10
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: command-line-interface
-ms.devlang: na
-ms.topic: article
+author: sptramer
+ms.author: sttramer
+manager: carmonm
 ms.date: 03/20/2017
-ms.author: rasquill
-
+ms.topic: conceptual
+ms.prod: azure
+ms.technology: azure-cli
+ms.devlang: azure-cli
 ---
 # Install the Azure CLI 1.0
 
@@ -69,7 +61,7 @@ If you use a Mac or Windows computer, the following CLI installers are available
 If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI 1.0 in a Docker container. Run the following command (on Linux distributions you might need to use **sudo**):
 
 ```bash
-docker run -it microsoft/azure-cli
+docker run -it microsoft/azure-cli:0.10.17
 ```
 
 ## Run Azure CLI 1.0 commands

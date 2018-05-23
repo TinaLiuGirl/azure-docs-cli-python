@@ -1,6 +1,6 @@
 ### YamlMime:UniversalReference
 items:
-- uid: ext_dev-spaces-preview_az
+- uid: ext_rdbms-vnet_az
   name: az
   summary: ''
   description: ''
@@ -8,9 +8,12 @@ items:
   - azurecli
   children: []
 commands:
-- uid: ext_dev-spaces-preview_az_ads
-  name: az ads
-  summary: (PREVIEW) Manage Azure Dev Spaces.
+- uid: ext_rdbms-vnet_az_mysql
+  name: az mysql
+  summary: Manage Azure Database for MySQL servers.
+- uid: ext_rdbms-vnet_az_postgres
+  name: az postgres
+  summary: Manage Azure Database for PostgreSQL servers.
 globalParameters:
 - name: --debug
   summary: Increase logging verbosity to show all debug logs.

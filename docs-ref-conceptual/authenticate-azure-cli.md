@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.component: authentication
 ---
 
-# Log in with Azure CLI 2.0
+#Log in with Azure CLI 2.0
 
 There are several ways to log in and authenticate with the Azure CLI. The easiest way to get started is to log in interactively through your browser through either Azure Cloud Shell or the `az login` command.
 The recommended approach is to use service principals, which are permissions-restricted accounts. By granting just the appropriate permissions needed to a service principal, you can ensure your automation

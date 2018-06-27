@@ -16,32 +16,6 @@
       },
       "build_entry_point": "docs",
       "template_folder": "_themes"
-    },
-    {
-      "docset_name": "e2eprod-azure-cli-docs",
-      "build_source_folder": ".",
-      "build_output_subfolder": "e2eprod-azure-cli-docs",
-      "locale": "en-us",
-      "monikers": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "ManagedReference": "Content",
-        "RestApi": "Content",
-        "AzurePyCli": "Content",
-        "UniversalReference": "Content",
-        "Tutorial": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "customized_template_paths": [
-        "_dependentPackages/uref/content"
-      ],
-      "customized_tasks": {
-        "docset_prebuild": [
-          "_dependentPackages/CommonPlugins/tools/JoinTOC.ps1"
-        ]
-      }
     }
   ],
   "enable_custom_validation":true,

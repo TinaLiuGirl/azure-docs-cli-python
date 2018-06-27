@@ -1,14 +1,5 @@
 {
   "build_entry_point": "docs",
-  "need_generate_pdf": false,
-  "need_preview_pull_request": true,
-  "need_generate_intellisense": false,
-  "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "Pdf"
-    ]
-  },
   "docsets_to_publish": [
     {
       "docset_name": "e2eprod-azure-cli-docs",
@@ -28,7 +19,7 @@
       "build_entry_point": "docs",
       "template_folder": "_themes",
       "customized_template_paths": [
-         "_dependentPackages/uref/content"
+        "_dependentPackages/uref/content"
       ],
       "customized_tasks": {
         "docset_prebuild": [
@@ -38,12 +29,12 @@
     }
   ],
   "notification_subscribers": [],
-  "branches_to_filter": [
-    "master-sync-work",
-    "live-sync-work"
-  ],
-  "skip_source_output_uploading": false,
+  "sync_notification_subscribers": [],
+  "branches_to_filter": [],
   "git_repository_branch_open_to_public_contributors": "staging",
+  "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
+  "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
@@ -52,7 +43,10 @@
       "branch_mapping": {}
     }
   ],
+  "branch_target_mapping": {},
   "need_generate_pdf_url_template": false,
+  "need_generate_pdf": false,
+  "need_generate_intellisense": false,
   "dependent_packages": [
     {
       "id": "opbuild.templates.uref",
